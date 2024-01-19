@@ -65,10 +65,10 @@ class Place(BaseModel, Base):
                 review = i.replace('.', ' ')
                 review = shlex.split(review)
                 if (review[0] == 'Review'):
-                   review_list.append(values[i])
+                    review_list.append(values[i])
             for element in review_list:
                 if (element.place_id == self.id):
-                   review_result.append(element)
+                    review_result.append(element)
             return (review_result)
 
         @property
