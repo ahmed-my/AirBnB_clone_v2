@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Fabric script that generates tgz archive from the contents of the web_static
-execute: fab -f 1-pack_web_static.py do_pack.
+Fabric script to genereate tgz archive
+execute: fab -f 1-pack_web_static.py do_pack
 """
 
 from datetime import datetime
@@ -17,7 +17,7 @@ def do_pack():
     archive = 'web_static_' + time.strftime("%Y%m%d%H%M%S") + '.' + 'tgz'
     local('mkdir -p versions')
     create = local('tar -cvzf versions/{} web_static'.format(archive))
-    if create is None:
-        return None
-    else:
+    if create is not None:
         return archive
+    else:
+        return None
