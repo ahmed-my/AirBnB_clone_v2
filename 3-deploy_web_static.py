@@ -2,6 +2,7 @@
 """
 Fabric script based on the file 2-do_deploy_web_static.py that creates and
 distributes an archive to the web servers.
+
 execute: fab -f 3-deploy_web_static.py deploy -i ~/.ssh/id_rsa -u ubuntu
 """
 
@@ -21,7 +22,6 @@ def do_pack():
         local("tar -cvzf {} web_static".format(file_name))
         return file_name
     except Exception as e:
-        print("Exception:", e)
         return None
 
 
@@ -43,7 +43,6 @@ def do_deploy(archive_path):
         run('ln -s {}{}/ /data/web_static/current'.format(path, no_ext))
         return True
     except Exception as e:
-        print("Exception:", e)
         return False
 
 
