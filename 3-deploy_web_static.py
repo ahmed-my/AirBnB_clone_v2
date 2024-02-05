@@ -41,7 +41,6 @@ def do_deploy(archive_path):
         run('rm -rf {}{}/web_static'.format(path, no_ext))
         run('rm -rf /data/web_static/current')
         run('ln -s {}{}/ /data/web_static/current'.format(path, no_ext))
-        puts("New version deployed!", show_prefix=False)
         return True
     except:
         return False
@@ -52,4 +51,7 @@ def deploy():
     archive_path = do_pack()
     if archive_path is None:
         return False
-    return do_deploy(archive_path)
+    result = do_deploy(archive_path)
+    if result:
+        print("New version deployed!")
+    return result
