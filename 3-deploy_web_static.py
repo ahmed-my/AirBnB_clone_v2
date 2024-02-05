@@ -21,7 +21,7 @@ def do_pack():
         file_name = "versions/web_static_{}.tgz".format(date)
         local("tar -cvzf {} web_static".format(file_name))
         return file_name
-    except Exception as e:
+    except:
         return None
 
 
@@ -43,7 +43,7 @@ def do_deploy(archive_path):
         run('ln -s {}{}/ /data/web_static/current'.format(path, no_ext))
         puts("New version deployed!", show_prefix=False)
         return True
-    except Exception as e:
+    except:
         return False
 
 
