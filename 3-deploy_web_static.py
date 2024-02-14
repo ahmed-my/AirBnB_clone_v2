@@ -55,6 +55,3 @@ def deploy():
     if result:
         print("New version deployed!")
     return result
-
-if __name__ == '__main__':
-    deploy()
