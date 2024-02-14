@@ -49,9 +49,12 @@ def do_deploy(archive_path):
 def deploy():
     """creates and distributes an archive to the web servers"""
     archive_path = do_pack()
-    if archive_path is None:
+    if not archive_path:
         return False
     result = do_deploy(archive_path)
     if result:
         print("New version deployed!")
     return result
+
+if __name__ == '__main__':
+    deploy()
