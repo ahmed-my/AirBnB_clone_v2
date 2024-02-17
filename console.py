@@ -11,6 +11,10 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+# Add these import statements for SQLAlchemy
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
 
 class HBNBCommand(cmd.Cmd):
     """ Contains the functionality for the HBNB console"""
