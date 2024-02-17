@@ -3,14 +3,14 @@
 """
 from flask import Flask
 
-app = Flask(__name__)
+my_web_app = Flask(__name__)
 
 
-@app.route("/", strict_slashes=False)
-def hello_hbnb():
-    """Displays 'Hello HBNB!'"""
-    return "Hello HBNB!"
+@my_web_app.route('/', strict_slashes=False)
+def greet():
+    """prints Hello HBNB!"""
+    return 'Hello HBNB!'
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    my_web_app.run(host='0.0.0.0', port=5000)

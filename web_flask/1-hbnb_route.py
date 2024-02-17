@@ -3,20 +3,20 @@
 """
 from flask import Flask
 
-app = Flask(__name__)
+my_web_app = Flask(__name__)
 
 
-@app.route("/", strict_slashes=False)
-def hello_hbnb():
-    """Displays 'Hello HBNB!'."""
+@my_web_app.route('/', strict_slashes=False)
+def greet():
+    """prints 'Hello HBNB!'."""
     return "Hello HBNB!"
 
 
-@app.route("/hbnb", strict_slashes=False)
-def hbnb():
-    """Displays 'HBNB'."""
+@my_web_app.route("/hbnb", strict_slashes=False)
+def greet_hbnb():
+    """prints 'HBNB'."""
     return "HBNB"
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    my_web_app.run(host='0.0.0.0', port=5000)
