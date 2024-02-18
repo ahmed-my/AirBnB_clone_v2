@@ -31,5 +31,5 @@ class State(BaseModel, Base):
                 city_list.append(values[i])
         for element in city_list:
             if (element.state_id == self.id):
-                result.append(element)
+                city_result.append(element)
         return (city_result)
