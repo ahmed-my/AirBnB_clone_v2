@@ -2,7 +2,8 @@
 """the place class"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
+from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey, DateTime
+from datetime import datetime as dt
 from sqlalchemy.orm import relationship
 from os import getenv
 import models
@@ -45,6 +46,8 @@ class Place(BaseModel, Base):
     price_by_night = Column(Integer, nullable=False, default=0)
     latitude = Column(Float)
     longitude = Column(Float)
+    created_at = Column(DateTime, default=dt.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=dt.utcnow, nullable=False)
     amenity_ids = []
 
     if getenv("HBNB_TYPE_STORAGE") == "db":
