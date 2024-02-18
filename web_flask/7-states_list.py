@@ -12,7 +12,7 @@ app = Flask(__name__)
 def states_list():
     """prints an HTML page with a list of all State objects in DBStorage.
     """
-    states = sorted(list(storage.all("State").values()), key=lambda x: x.name)
+    states = storage.all("State")
     return render_template("7-states_list.html", states=states)
 
 
