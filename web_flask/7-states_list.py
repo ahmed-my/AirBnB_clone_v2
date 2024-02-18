@@ -18,7 +18,7 @@ def states_list():
 
 @my_web_app.teardown_appcontext
 def teardown(exc):
-    """Remove the current SQLAlchemy session."""
+    """Removes the current SQLAlchemy session."""
     storage.close()
 
 
